@@ -15,7 +15,7 @@ class AppStyle {
   );
   static TextStyle boldWhite50 = GoogleFonts.openSans(
     color: AppColors.white,
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: FontWeight.bold,
   );
   static TextStyle boldGrey20 = GoogleFonts.openSans(

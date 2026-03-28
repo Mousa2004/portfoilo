@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfoilo/core/my_bloc_observer.dart';
 import 'package:portfoilo/core/utils/app_routes.dart';
 import 'package:portfoilo/core/utils/app_theme.dart';
+import 'package:portfoilo/feature/portfolio/cubit/portfolio_cubit.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  runApp(
+    BlocProvider(create: (context) => PortfolioCubit(), child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {

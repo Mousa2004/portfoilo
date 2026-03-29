@@ -13,6 +13,11 @@ class AppStyle {
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle boldWhite14 = GoogleFonts.openSans(
+    color: AppColors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle boldWhite50 = GoogleFonts.openSans(
     color: AppColors.white,
     fontSize: 50,
@@ -42,5 +47,15 @@ class AppStyle {
     color: AppColors.blue,
     fontSize: 20,
     fontWeight: FontWeight.bold,
+  );
+  static TextStyle regularGrey18 = GoogleFonts.openSans(
+    color: AppColors.grey,
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle regularGrey14 = GoogleFonts.openSans(
+    color: AppColors.grey,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
   );
 }

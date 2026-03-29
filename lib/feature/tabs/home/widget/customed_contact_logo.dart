@@ -39,7 +39,7 @@ class _CustomedContactLogoState extends State<CustomedContactLogo> {
             color: isHovered
                 ? AppColors
                       .darkGreen // hover color
-                : AppColors.lightBlue, // normal color
+                : AppColors.blueGrey, // normal color
             borderRadius: BorderRadius.circular(100),
             boxShadow: isHovered
                 ? [

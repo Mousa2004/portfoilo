@@ -54,7 +54,9 @@ class MyPortfolio extends StatelessWidget {
               horizontal: width * 0.05,
               vertical: height * 0.02,
             ),
-            child: cubit.tabsWidget[cubit.selectedTabIndex],
+            child: SingleChildScrollView(
+              child: cubit.tabsWidget[cubit.selectedTabIndex],
+            ),
           ),
         );
       },

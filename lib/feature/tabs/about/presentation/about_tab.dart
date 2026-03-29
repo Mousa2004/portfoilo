@@ -45,7 +45,7 @@ class AboutTab extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-              right: width * 0.3,
+              right: width * 0.25,
               top: height * 0.02,
               bottom: height * 0.04,
             ),
@@ -58,7 +58,7 @@ class AboutTab extends StatelessWidget {
               style: AppStyle.regularGrey18,
             ),
           ),
-          Divider(endIndent: width * 0.3, color: AppColors.blueGrey),
+          Divider(endIndent: width * 0.25, color: AppColors.blueGrey),
           Padding(
             padding: EdgeInsets.only(
               right: width * 0.5,
@@ -74,7 +74,7 @@ class AboutTab extends StatelessWidget {
               ],
             ),
           ),
-          Divider(endIndent: width * 0.3, color: AppColors.blueGrey),
+          Divider(endIndent: width * 0.25, color: AppColors.blueGrey),
         ],
       ),
     );

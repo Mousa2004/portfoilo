@@ -13,9 +13,12 @@ class CustomedAboutItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.sizeOf(context).height;
+
     return Column(
       children: [
         AutoSizeText(title, style: AppStyle.boldBlue20.copyWith(fontSize: 30)),
+        SizedBox(height: height * 0.01),
         AutoSizeText(subTitle, style: AppStyle.regularGrey14),
       ],
     );

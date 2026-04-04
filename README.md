@@ -22,8 +22,9 @@ It is built using Flutter Web and optimized for all devices 📱💻
 
 ## 🎥 Live Demo
 
-👉 https://portfolio-ab41e.web.app
-
+<a href="https://portfolio-ab41e.web.app" target="_blank">
+  <img src="https://img.shields.io/badge/Live%20Demo-Open-green?style=for-the-badge&logo=firefox" />
+</a>
 ---
 
 ## 🛠️ Technologies Used

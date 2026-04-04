@@ -1,17 +1,55 @@
-# portfoilo
+# 🌐 Portfolio - Flutter Web App
 
-A new Flutter project.
+A new Flutter Web Portfolio project.
 
-## Getting Started
+## 🚀 Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter Web application built to showcase my skills, projects, and experience as a Software Engineer.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 📱 About the Project
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This portfolio website is designed to:
+
+- Showcase my projects and applications  
+- Highlight my technical skills  
+- Provide an easy way to contact me  
+
+It is built using Flutter Web and optimized for all devices 📱💻
+
+---
+
+## 🎥 Live Demo
+
+👉 https://portfolio-ab41e.web.app
+
+---
+
+## 🛠️ Technologies Used
+
+- Flutter (Web)
+- Dart
+- Firebase Hosting
+- GitHub Actions (CI/CD)
+
+---
+
+## ⚙️ Features
+
+- Responsive design for all screen sizes 📱💻  
+- Fast performance ⚡  
+- Clean and modern UI 🎯  
+- Continuous deployment 🚀  
+
+---
+
+## 📦 Getting Started
+
+To run this project locally:
+
+```bash
+git clone https://github.com/Mousa2004/portfoilo.git
+cd portfolio
+flutter pub get
+flutter run -d chrome

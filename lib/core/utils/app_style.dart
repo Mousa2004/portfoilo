@@ -58,4 +58,14 @@ class AppStyle {
     fontSize: 14,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle regularIceBlue14 = GoogleFonts.openSans(
+    color: AppColors.iceBlue,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  );
+  static TextStyle regularWhite14 = GoogleFonts.openSans(
+    color: AppColors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  );
 }

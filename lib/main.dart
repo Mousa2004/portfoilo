@@ -6,13 +6,20 @@ import 'package:portfoilo/core/utils/app_routes.dart';
 import 'package:portfoilo/core/utils/app_theme.dart';
 import 'package:portfoilo/feature/firebase_services/firebase_options.dart';
 import 'package:portfoilo/feature/portfolio/cubit/portfolio_cubit.dart';
+import 'package:portfoilo/feature/tabs/home/cubit/home_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = MyBlocObserver();
   runApp(
-    BlocProvider(create: (context) => PortfolioCubit(), child: const MyApp()),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => PortfolioCubit()),
+        BlocProvider(create: (context) => HomeCubit()),
+      ],
+      child: const MyApp(),
+    ),
   );
 }
 

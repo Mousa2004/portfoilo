@@ -18,37 +18,97 @@ class MyPortfolio extends StatelessWidget {
       builder: (context, state) {
         var cubit = BlocProvider.of<PortfolioCubit>(context);
         return Scaffold(
+          // appBar: AppBar(
+          //   title: Padding(
+          //     padding: EdgeInsets.symmetric(horizontal: width * 0.04),
+          //     child: Row(
+          //       children: [
+          //         GradientText(
+          //           "MohamedDev",
+          //           style: AppStyle.boldWhite25,
+          //           colors: [AppColors.darkGreen, AppColors.darkBlue],
+          //         ),
+          //         Spacer(flex: 2),
+          //         Wrap(
+          //           children: cubit.tabs.asMap().entries.map((entry) {
+          //             int index = entry.key;
+          //             String tab = entry.value;
+
+          //             return GestureDetector(
+          //               onTap: () => cubit.changeSelectedTabIndex(index),
+          //               child: Padding(
+          //                 padding: EdgeInsets.only(right: width * 0.05),
+          //                 child: CustomedHoverMouse(text: tab),
+          //               ),
+          //             );
+          //           }).toList(),
+          //         ),
+          //         Spacer(),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           appBar: AppBar(
             title: Padding(
               padding: EdgeInsets.symmetric(horizontal: width * 0.04),
-              child: Row(
-                children: [
-                  GradientText(
-                    "MohamedDev",
-                    style: AppStyle.boldWhite25,
-                    colors: [AppColors.darkGreen, AppColors.darkBlue],
-                  ),
-                  Spacer(flex: 2),
-                  Wrap(
-                    children: cubit.tabs.asMap().entries.map((entry) {
-                      int index = entry.key;
-                      String tab = entry.value;
-
-                      return GestureDetector(
-                        onTap: () => cubit.changeSelectedTabIndex(index),
-                        child: Padding(
-                          padding: EdgeInsets.only(right: width * 0.05),
-                          child: CustomedHoverMouse(text: tab),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 600) {
+                    return Row(
+                      children: [
+                        GradientText(
+                          "MohamedDev",
+                          style: AppStyle.boldWhite25,
+                          colors: [AppColors.darkGreen, AppColors.darkBlue],
                         ),
-                      );
-                    }).toList(),
-                  ),
-                  Spacer(),
-                ],
+                        Spacer(),
+                        Row(
+                          children: cubit.tabs.asMap().entries.map((entry) {
+                            int index = entry.key;
+                            String tab = entry.value;
+
+                            return GestureDetector(
+                              onTap: () => cubit.changeSelectedTabIndex(index),
+                              child: Padding(
+                                padding: EdgeInsets.only(right: width * 0.05),
+                                child: CustomedHoverMouse(text: tab),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        Spacer(),
+                      ],
+                    );
+                  } else {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GradientText(
+                          "MohamedDev",
+                          style: AppStyle.boldWhite25,
+                          colors: [AppColors.darkGreen, AppColors.darkBlue],
+                        ),
+                        SizedBox(height: 10),
+                        Wrap(
+                          spacing: width * 0.04,
+                          runSpacing: 8,
+                          children: cubit.tabs.asMap().entries.map((entry) {
+                            int index = entry.key;
+                            String tab = entry.value;
+
+                            return GestureDetector(
+                              onTap: () => cubit.changeSelectedTabIndex(index),
+                              child: CustomedHoverMouse(text: tab),
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    );
+                  }
+                },
               ),
             ),
           ),
-
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: width * 0.05,

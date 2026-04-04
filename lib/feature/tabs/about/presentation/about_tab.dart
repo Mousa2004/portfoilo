@@ -20,16 +20,17 @@ class AboutTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AutoSizeText("About ", style: AppStyle.boldWhite50),
-              GradientText(
-                "Me",
-                colors: [AppColors.darkBlue, AppColors.darkGreen],
-                style: AppStyle.boldWhite50,
-              ),
-            ],
+          Center(
+            child: Wrap(
+              children: [
+                AutoSizeText("About ", style: AppStyle.boldWhite50),
+                GradientText(
+                  "Me",
+                  colors: [AppColors.darkBlue, AppColors.darkGreen],
+                  style: AppStyle.boldWhite50,
+                ),
+              ],
+            ),
           ),
           SizedBox(height: height * 0.01),
           Center(
@@ -61,12 +62,13 @@ class AboutTab extends StatelessWidget {
           Divider(endIndent: width * 0.25, color: AppColors.blueGrey),
           Padding(
             padding: EdgeInsets.only(
-              right: width * 0.5,
+              right: width * 0.1,
               top: height * 0.03,
               bottom: height * 0.02,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Wrap(
+              spacing: width * 0.05,
+
               children: [
                 CustomedAboutItem(title: "16+", subTitle: "Projects Completed"),
                 CustomedAboutItem(title: "2+", subTitle: "Years Experience"),

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfoilo/core/utils/app_colors.dart';
 import 'package:portfoilo/core/utils/app_style.dart';
+import 'package:portfoilo/feature/tabs/skills/widget/customed_mouse_region.dart';
 
 class CustomedContainerItem extends StatefulWidget {
   final String title;
@@ -27,35 +28,29 @@ class _CustomedContainerItemState extends State<CustomedContainerItem> {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
 
-    return MouseRegion(
-      onEnter: (_) => setState(() => isHovered = true),
-      onExit: (_) => setState(() => isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        height: height * 0.2,
-        width: width * 0.22,
-        padding: EdgeInsets.symmetric(horizontal: width * 0.01),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColors.darkBlueGrey,
-          border: Border.all(
-            color: isHovered ? AppColors.darkGreen : AppColors.darkBlueGrey,
-            width: isHovered ? 2 : 1,
+    return CustomedMouseRegion(
+      isHovered: isHovered,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: width * 0.01,
+            vertical: height * 0.02,
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(widget.icon, size: 40, color: AppColors.white),
-            AutoSizeText(
-              widget.title,
-              style: AppStyle.boldWhite14.copyWith(
-                color: isHovered ? AppColors.darkGreen : AppColors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(widget.icon, size: 40, color: AppColors.white),
+              SizedBox(height: height * 0.02),
+              AutoSizeText(
+                widget.title,
+                style: AppStyle.boldWhite14.copyWith(
+                  color: isHovered ? AppColors.darkGreen : AppColors.white,
+                ),
               ),
-            ),
-            AutoSizeText(widget.subTitle, style: AppStyle.regularGrey14),
-          ],
+              SizedBox(height: height * 0.01),
+              AutoSizeText(widget.subTitle, style: AppStyle.regularGrey14),
+            ],
+          ),
         ),
       ),
     );

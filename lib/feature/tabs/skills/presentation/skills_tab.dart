@@ -19,8 +19,7 @@ class SkillsTab extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
             children: [
               AutoSizeText("Technical ", style: AppStyle.boldWhite50),
               GradientText(

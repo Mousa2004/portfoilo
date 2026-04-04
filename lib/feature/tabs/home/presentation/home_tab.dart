@@ -5,6 +5,8 @@ import 'package:portfoilo/core/utils/app_assets.dart';
 import 'package:portfoilo/core/utils/app_colors.dart';
 import 'package:portfoilo/core/utils/app_style.dart';
 import 'package:portfoilo/core/utils/customed_button.dart';
+import 'package:portfoilo/feature/portfolio/cubit/portfolio_cubit.dart';
+import 'package:portfoilo/feature/portfolio/cubit/portfolio_state.dart';
 import 'package:portfoilo/feature/tabs/home/cubit/home_cubit.dart';
 import 'package:portfoilo/feature/tabs/home/cubit/home_state.dart';
 import 'package:portfoilo/feature/tabs/home/widget/customed_contact_logo.dart';
@@ -32,7 +34,7 @@ class HomeTab extends StatelessWidget {
           ),
           SizedBox(height: height * 0.04),
 
-          Row(
+          Wrap(
             children: [
               AutoSizeText("Hi, I'm ", style: AppStyle.boldWhite50),
               GradientText(
@@ -73,46 +75,46 @@ class HomeTab extends StatelessWidget {
             style: AppStyle.boldGrey20,
           ),
           SizedBox(height: height * 0.06),
-          CustomedButton(text: "View My Work", onPressed: () {}),
-          BlocProvider<HomeCubit>(
-            create: (context) => HomeCubit(),
-            child: BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                var cubit = BlocProvider.of<HomeCubit>(context);
-                return Row(
-                  children: [
-                    CustomedContactLogo(
-                      logoPath: AppAssets.github,
-                      onTap: () {
-                        cubit.launchURL(
-                          Uri.parse('https://github.com/Mousa2004'),
-                        );
-                      },
-                    ),
-                    SizedBox(width: width * 0.02),
-                    CustomedContactLogo(
-                      logoPath: AppAssets.linkedin,
-                      onTap: () {
-                        cubit.launchURL(
-                          Uri.parse(
-                            'https://www.linkedin.com/in/mohamed-mousa-flutter/',
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(width: width * 0.02),
-                    CustomedContactLogo(
-                      logoPath: AppAssets.whats,
-                      onTap: () {
-                        cubit.launchURL(
-                          Uri.parse('https://wa.me/201271932789'),
-                        );
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
+          BlocBuilder<PortfolioCubit, PortfolioState>(
+            builder: (context, state) {
+              return CustomedButton(
+                text: "View My Work",
+                onPressed: () {
+                  context.read<PortfolioCubit>().changeSelectedTabIndex(3);
+                },
+              );
+            },
+          ),
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              var cubit = BlocProvider.of<HomeCubit>(context);
+              return Row(
+                children: [
+                  CustomedContactLogo(
+                    logoPath: AppAssets.github,
+                    onTap: () {
+                      cubit.launchURL('https://github.com/Mousa2004');
+                    },
+                  ),
+                  SizedBox(width: width * 0.02),
+                  CustomedContactLogo(
+                    logoPath: AppAssets.linkedin,
+                    onTap: () {
+                      cubit.launchURL(
+                        'https://www.linkedin.com/in/mohamed-mousa-flutter/',
+                      );
+                    },
+                  ),
+                  SizedBox(width: width * 0.02),
+                  CustomedContactLogo(
+                    logoPath: AppAssets.whats,
+                    onTap: () {
+                      cubit.launchURL('https://wa.me/201271932789');
+                    },
+                  ),
+                ],
+              );
+            },
           ),
         ],
       ),
